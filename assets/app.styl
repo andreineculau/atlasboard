@@ -1,0 +1,274 @@
+@import 'nib'
+
+gutter = 15px
+textColor = #ffffff
+linkColor = #ffffff
+errorColor = #ff0000
+backgroundColor = #333333
+offlineColor = #ff0000
+outOfSyncColor = #da532c
+
+body
+  background backgroundColor
+  color textColor
+  font-family 'Courier New', Courier, 'Lucida Sans Typewriter', 'Lucida Typewriter', monospace;
+  // font-family Consolas, Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+  font-weight bold
+  font-size .75em
+  // text-shadow 1px 1px 1px rgba(0, 0, 0, 1)
+  // overflow hidden
+  cursor default
+
+a
+  color linkColor
+  cursor pointer
+
+::-webkit-scrollbar
+  display none
+
+#main
+  width 100vw
+  height 100vh
+  padding 1px
+  margin 0 auto
+
+  &.offline
+    background offlineColor
+
+  &.outOfSync
+    background outOfSyncColor
+
+#dashboards
+  ul
+    li{}
+
+#widgets.gridster
+  width 100%
+
+  ul
+    margin 0
+    padding 0
+
+.widget
+  background lighten(backgroundColor, 1)
+  border 1px solid lighten(backgroundColor, 5)
+  white-space nowrap
+  overflow auto
+
+  &.error
+    border-color errorColor
+
+  .loading-wrapper{}
+
+  .error-wrapper
+    padding (gutter / 2)
+
+  .success-wrapper
+    float left
+    padding (gutter / 2)
+
+
+
+// http://www.paulund.co.uk/create-interactive-grid-dashboard
+
+.font-blue,       .font-blue-link a         {color: #2d89ef;}
+.font-blueLight,  .font-blueLight-link a    {color: #eff4ff;}
+.font-blueDark,   .font-blueDark-link a     {color: #2b5797;}
+.font-green,      .font-green-link a        {color: #00a300;}
+.font-greenLight, .font-greenLight-link a   {color: #99b433;}
+.font-greenDark,  .font-greenDark-link a    {color: #1e7145;}
+.font-red,        .font-red-link a          {color: #b91d47;}
+.font-yellow,     .font-yellow-link a       {color: #ffc40d;}
+.font-orange,     .font-orange-link a       {color: #e3a21a;}
+.font-orangeDark, .font-orangeDark-link a   {color: #da532c;}
+.font-pink,       .font-pink-link a         {color: #9f00a7;}
+.font-pinkDark,   .font-pinkDark-link a     {color: #7e3878;}
+.font-purple,     .font-purple-link a       {color: #603cba;}
+.font-darken,     .font-darken-link a       {color: #1d1d1d;}
+.font-lighten,    .font-lighten-link a      {color: #d5e7ec;}
+.font-white,      .font-white-link a        {color: #ffffff;}
+.font-grayDark,   .font-grayDark-link a     {color: #525252;}
+
+.bg-blue       {background-color: #2d89ef;}
+.bg-blueLight  {background-color: #eff4ff;}
+.bg-blueDark   {background-color: #2b5797;}
+.bg-green      {background-color: #00a300;}
+.bg-greenLight {background-color: #99b433;}
+.bg-greenDark  {background-color: #1e7145;}
+.bg-red        {background-color: #b91d47;}
+.bg-yellow     {background-color: #ffc40d;}
+.bg-orange     {background-color: #e3a21a;}
+.bg-orangeDark {background-color: #da532c;}
+.bg-pink       {background-color: #9f00a7;}
+.bg-pinkDark   {background-color: #7e3878;}
+.bg-purple     {background-color: #603cba;}
+.bg-darken     {background-color: #1d1d1d;}
+.bg-lighten    {background-color: #d5e7ec;}
+.bg-white      {background-color: #ffffff;}
+.bg-grayDark   {background-color: #525252;}
+
+/*
+.gridster{width:960px;margin:0 auto;}
+.gridster .gs-w{background:#FFF;cursor:pointer;-webkit-box-shadow:0 0 5px rgba(0,0,0,0.3);box-shadow:0 0 5px rgba(0,0,0,0.3);}
+.gridster .player{-webkit-box-shadow:3px 3px 5px rgba(0,0,0,0.3);box-shadow:3px 3px 5px rgba(0,0,0,0.3);}
+.gridster .gs-w.try{background-image:url(../img/sprite.png);background-repeat:no-repeat;background-position:37px -169px;}
+.gridster .preview-holder{border:none!important;border-radius:0!important;background:rgba(255,255,255,.2)!important;}
+*/
+
+/*
+// nib is a powerful lib for stylus that provides cross-browser css3 mixins.
+// No more vendor prefixes. http//visionmedia.github.com/nib/
+
+dimmed = #444444
+background =
+widgetheader = #454545
+
+// Apply a natural box layout model to all elements.
+// http//paulirish.com/2012/box-sizing-border-box-ftw/
+*
+  box-sizing border-box
+
+
+
+#main
+  width 1920px
+  height 1080px
+  padding (gutter/2)
+  transform-origin 0 0
+  margin 0 auto
+
+  &.disconnected
+    opacity .3
+
+  #dashboard-list
+    width 100%
+    ul
+        list-style none
+        padding 0
+    li
+        background rgb(15, 15, 15)
+        color #fff
+        padding (gutter / 2)
+        margin (gutter / 2)
+        border-radius (gutter / 8)
+        box-shadow 0 0 5px #111
+        overflow hidden
+        float left
+        width 23%
+        font-size 2em
+        a
+            text-decoration none
+            color white
+            text-transform uppercase
+
+
+  #widgets
+
+      clear both
+
+      & > ul
+          list-style none
+          padding 0
+
+          & > li
+            background rgb(15, 15, 15)
+            color #fff
+            padding (gutter / 2)
+            border-radius (gutter / 8)
+            box-shadow 0 0 5px #111
+            overflow hidden
+
+            &.editing
+               z-index 32767
+               box-shadow 0 0 15px #333
+
+            &:hover .edit
+                display block
+
+            .content
+              &.offline, &.onerror
+                opacity 0.2
+
+            .edit
+                display none
+                width 20px
+                height 20px
+                position absolute
+                top (gutter/2)
+                right  (gutter/2)
+                border none
+                text-indent -9999px
+                background transparent no-repeat unquote('url(dataimage/pngbase64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAQAAAC1+jfqAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAGSSURBVCjPVVFNSwJhEF78Ad79Cf6PvXQRsotUlzKICosuRYmR2RJR0KE6lBFFZVEbpFBSqKu2rum6llFS9HHI4iUhT153n6ZtIWMOM+/MM88z7wwH7s9Ub16SJcnbmrNcxVm2q7Z8/QPvEOtntpj92NkCqITLepEpjix7xQtiLOoQ2b6+E7YAN/5nfOEJ2WbKqOIOJ4bYVMEQx4LfBBQDsvFMhUcCVU1/CxVXmDBGA5ZETrhDCQVcYAPbyEJBhvrnBVPiSpNr6cYDNCQwo4zzU/ySckkgDYuNuVpI42T9k4gLKGMPs/xPzzovQiY2hQYe0jlJfyNNhTqiWDYBq/wBMcSRpnyPzu1oS7WtxjVBSthU1vgVksiQ3Dn6Gp5ah2YOKQo5GiuHPA6xT1EKpxQNCNYejgIR457KKio0S56YckjSa9jo//3mrj+BV0QQagqGTOo+Y7gZIf1puP3WHoLhEb2PjTlCTCWGXtbp8DCX3hZuOdaIc9A+aQvWk4ihq95p67a7nP+u+Ws+r0dql9z/zv0NCYhdCPKZ7oYAAAAASUVORK5CYII=)')
+
+      &.loading
+         color #333
+
+        h2
+            font-size gutter
+            // Stylus is trying to be damn too clever.
+            margin-top 0
+            margin-left -(gutter/2)
+            margin-right -(gutter/2)
+            margin-bottom (gutter/2)
+            padding 0 (gutter/2) 0 (gutter/2)
+            text-transform uppercase
+            color widgetheader
+            line-height 90%
+            overflow: hidden
+            text-overflow: ellipsis
+            white-space: nowrap
+
+big
+     color #fff
+     font-size gutter * 2
+     font-weight bold
+
+
+
+.icon-message
+    display table
+    height 100%
+    width 100%
+    .content
+        display table-cell
+        vertical-align middle
+        .spinner
+            margin 0 auto
+            display block
+
+.error-wrapper
+  colorred
+  font-size gutter
+
+  .content
+    text-align: center
+
+  &.icon-message > .content > img
+    opacity .4
+    height 40%
+
+
+.error-display
+    display none
+    padding-left 20px
+    padding-bottom 3px
+
+.error-display.show
+    display inline !important
+
+.widget-title span.alert
+  text-transform lowercase
+  font-size 80%
+  opacity 0.8
+
+
+.widget-title span.alert_low
+  color yellow
+
+.output-wrapper
+  width 100%
+
+.widget-title span.alert_high
+  color red
+
+*/

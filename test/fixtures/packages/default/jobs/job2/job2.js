@@ -1,1 +1,0 @@
-module.exports = function(config, dependencies, job_callback) {};

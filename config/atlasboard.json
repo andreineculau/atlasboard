@@ -1,0 +1,9 @@
+{
+  "live-logging" : {
+    "enabled": true
+  },
+
+  "scheduler" : {
+    "logSuccessfulJob" : true
+  }
+}

@@ -1,9 +1,0 @@
-{
-  "config" : {
-
-    "job1_conf" : {
-      "jira_server" : "https://jira.atlassian.com",
-      "interval" : 2500
-    }
-  }
-}

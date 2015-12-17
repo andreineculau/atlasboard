@@ -1,6 +1,0 @@
-{
-  "foo": {
-    "username": "${TEST_USER}",
-    "password": "before_${TEST_PASSWORD}_after"
-  }
-}
